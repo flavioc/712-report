@@ -1,1 +1,43 @@
-foo
+We will design an algorithm for routing graph computation based on {\em centralized global knowledge} of the content distribution network. With regard to establishing a routing graph, we view the network as having four major components:
+\begin{enumerate}
+	\item {\bf Controller nodes} ($C$), one or more machines which have (approximate) global knowledge about the state of the rest of the network, and compute and distribute a routing graph, and
+	\item {\bf Data distribution nodes} ($D$), machines which receive instructions from the controllers about how to connect to and distribute data between their neighbours.
+	These nodes and the network connections between them comprise a weighted graph.
+	The network's ``edge servers'' ($E$) are a subset, or possibly the entire set, of $D$.
+	\item {\bf Content origin servers} ($O$). Our $D$s do not get the data out of thin air, after all.
+	\item {\bf Connected users} ($U$), which form edges with the nodes in $E$.
+\end{enumerate}
+
+\subsection{Stable Graph Algorithm}
+
+The central challenge of this project stems from the fact that the set of data nodes is {\em dynamic} (i.e., new data nodes join the network, data nodes will fail, edge weights will change, etc.).
+This, of course, means it will not do for the network to rely on a static precomputed routing graph until the end of time; rather, the controllers must dynamically recompute the graph as the distribution graph's topology changes, and inform the data nodes when the graph changes.
+However, we wish to avoid the controllers over-using network bandwidth to distribute a new routing graph each time a small element changes.
+
+To this end, we will develop a {\bf stable dynamic graph algorithm} that can minimize the number of data nodes that need to be informed for a given update.
+Formally, suppose $N_0$ is the initial network configuration before some change, and $G_0 = \mathsf{route}(N_0)$ is the routing graph computed for $N_0$, and that $N_0$ changes to $N_1$ by some edit distance $\Delta_N$, and that $G_1 = \mathsf{route}(N_1)$ is the new routing graph, which differs from $G_0$ by some edit distance $\Delta_G$.
+
+We say that the {\bf stability criterion} for a graph computation algorithm requires $\Delta_G$ to be bound to $\Delta_N$ by some relation $\mathcal{R}$; that is, $\Delta_G \le \mathcal{R}(\Delta_N)$. In order to more thoroughly approach this, during the course of the project we will establish:
+\begin{enumerate}
+	\item how to compute the edit distances $\Delta$, and 
+	\item what function $\mathcal{R}$ our algorithm can guarantee.
+\end{enumerate}
+
+\subsection{Parameterizing our Algorithm}
+
+In addition to meeting the stability criterion, we wish to enhance our algorithm with several features that are expected in modern network architectures. We will investigate making our algorithm flexible over the following parameters:
+
+\begin{enumerate}
+	\item How many controller nodes $C$ shall cooperate to compute the graphs $G$. This will introduce a new semi-major challenge: different controllers $C_i$ and $C_j$ may have slightly different perceptions of the global state of the network, depending on update distribution latency, dropped packets(?), etcetera. Hence, if each controller gives its own order to each $D$, then the set of orders that a given $D$ is given may be contradictory. Most likely, we would resolve this by making the controllers cooperate to send out consistent orders.
+	\item Number of origin servers $O$.
+	\item Heuristics for measuring the edge weights $W(D_i,D_j)$. Such a heuristic will likely include factors such as geographical location, number of users currently connected, node load, and link quality.
+\end{enumerate}
+
+While we may or may not allow for these quantities to change during on-line execution of our algorithm, there are some events we must plan for. These are:
+
+\begin{enumerate}
+	\item Controller ``hotplug'' - $C_i$ fails or re-joins the network.
+	\item Data node ``hotplug'' - $D_i$ fails or re-joins the network.
+	\item New users - $U_i$ connects to or disconnects from the network.
+\end{enumerate}
+
