@@ -5,9 +5,9 @@ While there exist many sophisticated graph algorithms that run fast, many of the
 The maximum-flow problem involves finding the best flow through a single-source, single-sink flow network.
 S. Kumar et al.~\cite{maxflow} developed an algorithm with complexity $O((\Delta n)^{2}m)$, where $\Delta n$ is the number of affected vertices and $m$ the number of edges in the graph. This algorithm is not stable since one change may drastically modify the result.
 
-Henzinger~\cite{Henzinger97maintainingminimum} describes a simple algorithm for maintaining the minimum weight spanning tree while the graph changes. This was the first algorithm that run in sublinear time per update operation.
+Henzinger~\cite{Henzinger97maintainingminimum} describes a simple algorithm for maintaining the minimum weight spanning tree while the graph changes. This was the first algorithm that run in sub-linear time per update operation.
 
-For shortest path computations, there is a fairly rich literature about dynamic algorithms for computing both single-source shortest-path trees and also all-pairs shortest path trees. Camil Demetrescu and Giuseppe F. Italiano did an extensive experimental analysis \cite{Demetrescu04experimentalanalysis} on several shortest path algorithms. They used both synthetic examples and also real world examples (including internet networks and road networks). Their experiments show that some of these algortihms have a high memory usage, needing at least 10GB of memory when using 10000 nodes.
+For shortest path computations, there is a fairly rich literature about dynamic algorithms for computing both single-source shortest-path trees and also all-pairs shortest path trees. Camil Demetrescu and Giuseppe F. Italiano did an extensive experimental analysis \cite{Demetrescu04experimentalanalysis} on several shortest path algorithms. They used both synthetic examples and also real world examples (including internet networks and road networks). Their experiments show that some of these algorithms have a high memory usage, needing at least 10GB of memory when using 10000 nodes.
 
 \subsubsection{Road Networks}
 

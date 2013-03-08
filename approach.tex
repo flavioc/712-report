@@ -1,7 +1,7 @@
 We will design an algorithm for routing graph computation based on {\em centralized global knowledge} of the content distribution network. With regard to establishing a routing graph, we view the network as having four major components:
 \begin{enumerate}
 	\item {\bf Controller nodes} ($C$), one or more machines which have (approximate) global knowledge about the state of the rest of the network, and compute and distribute a routing graph, and
-	\item {\bf Data distribution nodes} ($D$), machines which receive instructions from the controllers about how to connect to and distribute data between their neighbours.
+	\item {\bf Data distribution nodes} ($D$), machines which receive instructions from the controllers about how to connect to and distribute data between their neighbors.
 	These nodes and the network connections between them comprise a weighted graph.
 	The network's ``edge servers'' ($E$) are a subset, or possibly the entire set, of $D$.
 	\item {\bf Content origin servers} ($O$). Our $D$s do not get the data out of thin air, after all.
