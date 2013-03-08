@@ -1,0 +1,20 @@
+\subsubsection{Dynamic Graph Algorithms}
+
+While there exists many sophisticated graph algorithms that run fast, many of them are not dynamic and thus require full recomputation when the graph changes. Such changes may include edge weight changes, insertion of new nodes or removal of nodes. We will give a brief overview of the most important results in this area for the most relevant algorithms.
+
+The maximum flow problem involves finding the best flow through a single-source, single-sink flow network.
+S. Kumar et al~\cite{maxflow} developed an algorithm with complexity $O((\Delta n)^{2}m)$, where $\Delta n$ is the number of affected vertices and $m$ the number of edges in the graph. This algorithm is not stable since one change may drastically modify the result.
+
+Henzinger~\cite{Henzinger97maintainingminimum} describes a simple algorithm for maintaining the minimum weight spanning tree while the graph changes. This was the first algorithm that run in sublinear time per update operation.
+
+For shortest path computations, there is a fairly rich literature about dynamic algortihms for computing both single source shortest path trees and also all-pairs shortest path trees. Camil Demetrescu and Giuseppe F. Italiano did an extensive experimental analysis \cite{Demetrescu04experimentalanalysis} on several shortest path algorithms. They used both synthetic examples and also real world examples (include internet networks and road networks). Their experiments show that some of these algortihms have a high memory usage, needing at least 10GB when using 10000 nodes.
+
+\subsubsection{Road Networks}
+
+The problem of finding the best path in a road network giving the traffic conditions is also very relevant to our project.
+Giacomo et al~\cite{DBLP:journals/corr/abs-0704-1068} describe an efficient algorithm for computing shortest paths on large scale road networks. They use an heuristic called highway hierarchy where the underlying static network is used to build a highway hierarchy. Given that the edges of a road network usually never change, this hierarchy speedups the process of computing shortest paths.
+
+\subsubsection{Media Delivery}
+
+Oh Chan Kwon et al~\cite{51043858} have recently developed a system that is similar to our project. Kwon system uses a genetic algorithm to construct a multicast tree to support stable multimedia service over the Internet. They assume that links may have quality changes and nodes may not be stable. However, their system is fully decentralized and it may not scale well
+since the experiments done in that paper only used 6000 nodes.
