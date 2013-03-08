@@ -1,6 +1,6 @@
-To evaluate our system we will develop a workload generator that creates different benchmarks. These benchmarks will stress different aspects of our system. Most of the scenarios will include: new users joining to system to view a video; a certain percentage of servers dies; quality problems with several links in the system; or one of the controllers dies.
+To evaluate our system we will develop a workload generator that creates different benchmarks. These benchmarks will stress different aspects of our system. Most of the scenarios will include: new users joining the system to view a video; a certain percentage of servers dying; quality problems with several links in the system; or some of the controllers dying.
 
-We want to measure the throughput and resilliency in the situations described above. For throughput we have the following metrics:
+We want to measure the throughput and resiliency in the situations described above. For throughput we have the following metrics:
 
 \begin{itemize}
 \item Average bitrate received on each edge server.
@@ -8,11 +8,11 @@ We want to measure the throughput and resilliency in the situations described ab
 \item Average join time on each edge server.
 \end{itemize}
 
-Finally, the metrics for measuring resilliency are the following:
+Finally, the metrics for measuring resiliency are the following:
 
 \begin{itemize}
 \item Recovery time during different type of server failures.
 \item Users impacted by a failure.
 \end{itemize}
 
-We also would like to compare these metrics against an unstable version of our algorithm. This will give us an indication of how important is stability in the performance of the system.
+We also would like to compare these metrics against an unstable version of our algorithm. This will give us an indication of how important stability is in the performance of the system.
