@@ -1,0 +1,16 @@
+To evaluate our system we will develop a workload generator that creates different benchmarks. These benchmarks will stress different aspects of our system. Most of the scenarios will include: new users joining to system to view a video; a certain percentage of servers dies; quality problems with several links in the system; or one of the controllers dies.
+
+We want to measure the throughput and resilliency in the situations described above. For throughput we have the following metrics:
+
+\begin{itemize}
+\item Average bitrate received on each edge server.
+\item Average buffering ratio on each edge server.
+\item Average join time on each edge server.
+\end{itemize}
+
+Finally, the metrics for measuring resilliency are the following:
+
+\begin{itemize}
+\item Recovery time during different type of server failures.
+\item Users impacted by a failure.
+\end{itemize}

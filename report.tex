@@ -1,21 +1,21 @@
+
+\newcommand{\email}[1]{\href{mailto:#1}{#1}}
+
 \title{Project Proposal}
 \author{
-   Ben Blum
+   Ben Blum (\email{bblum@cs.cmu.edu})
    \and
-   Flavio Cruz
+   Fl\'{a}vio Cruz (\email{fmfernan@cs.cmu.edu})
    \and
-   Andrey Kostov
+   Andrey Kostov (\email{akostov@cs.cmu.edu})
 }
 \date{\today}
 
 \documentclass[10pt]{article}
+\usepackage{hyperref}
 
 \begin{document}
 \maketitle
-
-\begin{abstract}
-This is the paper's abstract \ldots
-\end{abstract}
 
 \section{Introduction}
 
@@ -33,7 +33,14 @@ This is the paper's abstract \ldots
 
 \section{Milestones \& Plans}
 
+\subsection{Evaluation Plan}
+\input{evaluation}
+
 \subsection{Risks \& Assumptions}
+\input{risks}
+
+\subsection{Milestones}
+\input{milestones}
 
 \bibliographystyle{abbrv}
 \bibliography{report}
